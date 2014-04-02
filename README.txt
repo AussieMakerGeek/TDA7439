@@ -1,0 +1,1 @@
+An arduino library for controlling the TDA7439 Audio processor chip
