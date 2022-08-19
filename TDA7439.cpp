@@ -6,7 +6,7 @@ TDA7439::TDA7439(){
 	Wire.begin();
 }
 
-void TDA7439::setInput(int input){
+void TDA7439::setInput(uint8_t input){
   switch (input) {
     case 1: input = TDA7439_input_1;break;
 	case 2: input = TDA7439_input_2;break;
@@ -16,11 +16,11 @@ void TDA7439::setInput(int input){
   writeWire(TDA7439_input_sel,input);	
   } 
 
-void TDA7439::inputGain(int gain){
+void TDA7439::inputGain(uint8_t gain){
   writeWire(TDA7439_input_gain,gain);
 }
 
-void TDA7439::setVolume(int volume){
+void TDA7439::setVolume(uint8_t volume){
   if (volume == 0){
     volume = TDA7439_mute;
 	}else{
@@ -29,7 +29,7 @@ void TDA7439::setVolume(int volume){
   writeWire(TDA7439_volume,volume);
 }
 
-void TDA7439::setSnd(int val, int range){
+void TDA7439::setSnd(int8_t val, uint8_t range){
   switch (range){
     case 1:range = TDA7439_bass;break;
 	case 2:range = TDA7439_middle;break;
@@ -60,7 +60,7 @@ void TDA7439::mute(){
   writeWire(TDA7439_volume,TDA7439_mute);
 }
 
-void TDA7439::spkAtt(int att){
+void TDA7439::spkAtt(uint8_t att){
   // Mainly used to override the default attenuation of mute at power up
   // can be used for balance with some simple code changes here.
   writeWire(TDA7439_ratt,att);
